@@ -67,4 +67,4 @@ MIT License
 
 ---
 
-Made with ❤️ by EraseMark AI Eresemark-ai
+Made with ❤️ by BLOOD-MD Eresemark-ai
