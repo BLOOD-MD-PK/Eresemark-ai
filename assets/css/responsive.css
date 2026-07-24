@@ -1,0 +1,531 @@
+/* ======================================================
+   EraseMark AI
+   Responsive Styles
+   Version : 1.0
+====================================================== */
+
+/* ======================================================
+   LARGE DESKTOP
+   1400px+
+====================================================== */
+
+@media (min-width:1400px){
+
+    .container{
+
+        max-width:1320px;
+
+    }
+
+}
+
+/* ======================================================
+   LAPTOP
+   1200px
+====================================================== */
+
+@media (max-width:1200px){
+
+    .container{
+
+        width:min(100% - 3rem,1100px);
+
+    }
+
+    .hero-wrapper{
+
+        gap:3rem;
+
+    }
+
+    .features-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .steps-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+/* ======================================================
+   TABLET
+   992px
+====================================================== */
+
+@media (max-width:992px){
+
+    .nav-links{
+
+        display:none;
+
+    }
+
+    .menu-btn{
+
+        display:flex;
+
+    }
+
+    .hero{
+
+        min-height:auto;
+
+        padding:7rem 0 4rem;
+
+    }
+
+    .hero-wrapper{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+    .hero-actions{
+
+        justify-content:center;
+
+    }
+
+    .editor-layout{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .sidebar{
+
+        position:static;
+
+    }
+
+    .image-info{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+/* ======================================================
+   MOBILE TABLET
+   768px
+====================================================== */
+
+@media (max-width:768px){
+
+    .container{
+
+        width:min(100% - 2rem,100%);
+
+    }
+
+    .section{
+
+        padding:5rem 0;
+
+    }
+
+    h1{
+
+        font-size:2.8rem;
+
+    }
+
+    h2{
+
+        font-size:2.2rem;
+
+    }
+
+    p{
+
+        font-size:.96rem;
+
+    }
+
+    .header{
+
+        height:70px;
+
+    }
+
+    .logo img{
+
+        width:38px;
+        height:38px;
+
+    }
+
+    .logo span{
+
+        font-size:1.1rem;
+
+    }
+
+    .hero-wrapper{
+
+        gap:2rem;
+
+    }
+
+    .preview-card{
+
+        max-width:100%;
+
+    }
+
+    .upload-box{
+
+        padding:3rem 1.5rem;
+
+    }
+
+    .upload-title{
+
+        font-size:1.7rem;
+
+    }
+
+    .upload-actions{
+
+        flex-direction:column;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+    }
+
+    .features-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .steps-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .image-info{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .canvas-toolbar{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .toolbar-left,
+    .toolbar-right{
+
+        justify-content:center;
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+}
+
+/* ======================================================
+   SMALL MOBILE
+   480px
+====================================================== */
+
+@media (max-width:480px){
+
+    .container{
+
+        width:calc(100% - 1.2rem);
+
+    }
+
+    .section{
+
+        padding:4rem 0;
+
+    }
+
+    h1{
+
+        font-size:2.2rem;
+
+    }
+
+    h2{
+
+        font-size:1.8rem;
+
+    }
+
+    .hero{
+
+        padding-top:6rem;
+
+    }
+
+    .hero-badge{
+
+        font-size:.8rem;
+
+    }
+
+    .upload-box{
+
+        padding:2rem 1rem;
+
+    }
+
+    .upload-icon{
+
+        width:70px;
+
+        height:70px;
+
+    }
+
+    .upload-icon img{
+
+        width:38px;
+
+        height:38px;
+
+    }
+
+    .upload-title{
+
+        font-size:1.4rem;
+
+    }
+
+    .preview-card{
+
+        padding:1rem;
+
+    }
+
+    .sidebar{
+
+        padding:1rem;
+
+    }
+
+    .tool-btn{
+
+        padding:12px;
+
+    }
+
+    .icon-btn{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+    .image-info{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .toast{
+
+        left:12px;
+
+        right:12px;
+
+        min-width:auto;
+
+        bottom:16px;
+
+    }
+
+}
+
+/* ======================================================
+   EXTRA SMALL DEVICES
+   360px
+====================================================== */
+
+@media (max-width:360px){
+
+    :root{
+
+        --header-height:64px;
+
+    }
+
+    .container{
+
+        width:calc(100% - 1rem);
+
+    }
+
+    h1{
+
+        font-size:1.9rem;
+
+    }
+
+    h2{
+
+        font-size:1.5rem;
+
+    }
+
+    p{
+
+        font-size:.9rem;
+
+    }
+
+    .logo span{
+
+        display:none;
+
+    }
+
+    .btn{
+
+        padding:12px 18px;
+
+        font-size:.9rem;
+
+    }
+
+    .hero-actions{
+
+        gap:.8rem;
+
+    }
+
+    .upload-box{
+
+        padding:1.5rem .8rem;
+
+    }
+
+    .upload-title{
+
+        font-size:1.25rem;
+
+    }
+
+    .feature-card{
+
+        padding:1.4rem;
+
+    }
+
+    .faq-item{
+
+        padding:1rem;
+
+    }
+
+    .modal-content{
+
+        padding:1.2rem;
+
+    }
+
+}
+
+/* ======================================================
+   LANDSCAPE MODE
+====================================================== */
+
+@media (max-height:600px) and (orientation:landscape){
+
+    .hero{
+
+        min-height:auto;
+
+        padding:7rem 0 3rem;
+
+    }
+
+    .section{
+
+        padding:4rem 0;
+
+    }
+
+}
+
+/* ======================================================
+   REDUCED MOTION
+====================================================== */
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+/* ======================================================
+   PRINT
+====================================================== */
+
+@media print{
+
+    .header,
+    .footer,
+    .menu-btn,
+    .hero-actions,
+    .upload-actions{
+
+        display:none !important;
+
+    }
+
+    body{
+
+        background:#fff;
+
+        color:#000;
+
+    }
+
+}
+
+/* ======================================================
+   END OF FILE
+====================================================== */

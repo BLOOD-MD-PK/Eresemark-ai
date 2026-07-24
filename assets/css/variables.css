@@ -1,0 +1,71 @@
+/* ======================================================
+   EraseMark AI
+   Design Tokens / Variables
+   Version: 1.0
+====================================================== */
+
+:root {
+
+    /* ========= Brand ========= */
+
+    --primary: #FF2D55;
+    --primary-hover: #FF1744;
+
+    --secondary: #FFD400;
+    --secondary-hover: #FFC400;
+
+    /* ========= Background ========= */
+
+    --bg: #0B0B0B;
+    --surface: #141414;
+    --surface-2: #1C1C1C;
+
+    /* ========= Text ========= */
+
+    --text: #FFFFFF;
+    --text-light: #CFCFCF;
+    --text-muted: #8A8A8A;
+
+    /* ========= Border ========= */
+
+    --border: #2A2A2A;
+
+    /* ========= Status ========= */
+
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --danger: #EF4444;
+    --info: #3B82F6;
+
+    /* ========= Radius ========= */
+
+    --radius-xs: 6px;
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-full: 999px;
+
+    /* ========= Shadow ========= */
+
+    --shadow-sm: 0 2px 8px rgba(0,0,0,.20);
+    --shadow-md: 0 10px 30px rgba(0,0,0,.35);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,.45);
+
+    /* ========= Transition ========= */
+
+    --transition: .30s ease;
+
+    /* ========= Layout ========= */
+
+    --container: 1280px;
+    --header-height: 80px;
+
+    /* ========= Font ========= */
+
+    --font:
+        "Inter",
+        "Poppins",
+        sans-serif;
+
+}
