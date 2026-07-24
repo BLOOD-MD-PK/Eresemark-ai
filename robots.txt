@@ -1,0 +1,12 @@
+# ============================================
+# EraseMark AI
+# Robots.txt
+# ============================================
+
+User-agent: *
+
+Allow: /
+
+Disallow: /api/
+
+Sitemap: https://your-domain.vercel.app/sitemap.xml
