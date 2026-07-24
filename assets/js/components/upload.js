@@ -1,38 +1,60 @@
 /**
  * ============================================
  * EraseMark AI
- * Upload Component
+ * Upload Component (Fixed UI)
  * ============================================
  */
 
 import { removeWatermark } from "../api.js";
 
 /**
- * 1. Generate UI Component
+ * 1. Generate Modern UI Component
  */
 export function Upload() {
     const section = document.createElement("section");
     section.className = "upload-section";
+
     section.innerHTML = `
         <div class="upload-container">
-            <input type="file" id="uploadInput" accept="image/*" />
-            <div class="preview-container">
-                <img id="previewImage" src="" alt="Preview" />
+            <!-- Modern Upload Box -->
+            <div class="drop-zone" id="dropZone">
+                <input type="file" id="uploadInput" accept="image/*" hidden />
+                <label for="uploadInput" class="upload-label">
+                    <span class="upload-icon">☁️</span>
+                    <p><strong>Click to upload</strong> or drag and drop</p>
+                    <small>PNG, JPG, or WEBP</small>
+                </label>
             </div>
-            <button id="removeButton">Remove Watermark</button>
-            <button id="downloadButton" hidden>Download</button>
-            <div id="loading" hidden>Processing...</div>
+
+            <!-- Preview Box (Hidden by default, so NO broken image icon!) -->
+            <div class="preview-box" id="previewBox" style="display: none;">
+                <img id="previewImage" src="" alt="Selected Preview" />
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="upload-actions">
+                <button id="removeButton" class="btn btn-primary">Remove Watermark</button>
+                <button id="downloadButton" class="btn btn-success" hidden>Download Image</button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loading" class="loading-state" hidden>
+                <div class="spinner"></div>
+                <p>Removing watermark, please wait...</p>
+            </div>
         </div>
     `;
+
     return section;
 }
 
 /**
- * 2. Initialize Event Listeners
+ * 2. Event Listeners
  */
 export function initUpload() {
     const uploadInput = document.getElementById("uploadInput");
     const previewImage = document.getElementById("previewImage");
+    const previewBox = document.getElementById("previewBox");
     const removeButton = document.getElementById("removeButton");
     const downloadButton = document.getElementById("downloadButton");
     const loading = document.getElementById("loading");
@@ -48,7 +70,9 @@ export function initUpload() {
 
         if (!selectedFile) return;
 
+        // Image select hone par src set hoga AUR preview show hoga
         previewImage.src = URL.createObjectURL(selectedFile);
+        if (previewBox) previewBox.style.display = "block";
     });
 
     /**
@@ -96,3 +120,4 @@ export function initUpload() {
         link.click();
     });
 }
+
