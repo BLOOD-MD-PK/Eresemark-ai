@@ -7,85 +7,92 @@
 
 import { removeWatermark } from "../api.js";
 
-const uploadInput = document.getElementById("uploadInput");
-const previewImage = document.getElementById("previewImage");
-const removeButton = document.getElementById("removeButton");
-const downloadButton = document.getElementById("downloadButton");
-const loading = document.getElementById("loading");
-
-let selectedFile = null;
-let processedImage = null;
-
+/**
+ * 1. Generate UI Component
+ */
+export function Upload() {
+    const section = document.createElement("section");
+    section.className = "upload-section";
+    section.innerHTML = `
+        <div class="upload-container">
+            <input type="file" id="uploadInput" accept="image/*" />
+            <div class="preview-container">
+                <img id="previewImage" src="" alt="Preview" />
+            </div>
+            <button id="removeButton">Remove Watermark</button>
+            <button id="downloadButton" hidden>Download</button>
+            <div id="loading" hidden>Processing...</div>
+        </div>
+    `;
+    return section;
+}
 
 /**
- * Select Image
+ * 2. Initialize Event Listeners
  */
-uploadInput?.addEventListener("change", (event) => {
+export function initUpload() {
+    const uploadInput = document.getElementById("uploadInput");
+    const previewImage = document.getElementById("previewImage");
+    const removeButton = document.getElementById("removeButton");
+    const downloadButton = document.getElementById("downloadButton");
+    const loading = document.getElementById("loading");
 
-    selectedFile = event.target.files[0];
+    let selectedFile = null;
+    let processedImage = null;
 
-    if (!selectedFile) return;
+    /**
+     * Select Image
+     */
+    uploadInput?.addEventListener("change", (event) => {
+        selectedFile = event.target.files[0];
 
-    previewImage.src = URL.createObjectURL(selectedFile);
+        if (!selectedFile) return;
 
-});
+        previewImage.src = URL.createObjectURL(selectedFile);
+    });
 
-
-/**
- * Remove Watermark
- */
-removeButton?.addEventListener("click", async () => {
-
-    if (!selectedFile) {
-        alert("Please select an image first.");
-        return;
-    }
-
-    try {
-
-        loading.hidden = false;
-
-        const response = await removeWatermark(selectedFile);
-
-        loading.hidden = true;
-
-        if (!response.success) {
-            alert(response.message);
+    /**
+     * Remove Watermark
+     */
+    removeButton?.addEventListener("click", async () => {
+        if (!selectedFile) {
+            alert("Please select an image first.");
             return;
         }
 
-        processedImage = response.image;
+        try {
+            if (loading) loading.hidden = false;
 
-        previewImage.src = processedImage;
+            const response = await removeWatermark(selectedFile);
 
-        downloadButton.hidden = false;
+            if (loading) loading.hidden = true;
 
-    } catch (error) {
+            if (!response.success) {
+                alert(response.message || "Failed to remove watermark.");
+                return;
+            }
 
-        loading.hidden = true;
+            processedImage = response.image;
+            previewImage.src = processedImage;
 
-        console.error(error);
+            if (downloadButton) downloadButton.hidden = false;
 
-        alert("Failed to remove watermark.");
+        } catch (error) {
+            if (loading) loading.hidden = true;
+            console.error(error);
+            alert("Failed to remove watermark.");
+        }
+    });
 
-    }
+    /**
+     * Download
+     */
+    downloadButton?.addEventListener("click", () => {
+        if (!processedImage) return;
 
-});
-
-
-/**
- * Download
- */
-downloadButton?.addEventListener("click", () => {
-
-    if (!processedImage) return;
-
-    const link = document.createElement("a");
-
-    link.href = processedImage;
-
-    link.download = "EraseMark-AI.png";
-
-    link.click();
-
-});
+        const link = document.createElement("a");
+        link.href = processedImage;
+        link.download = "EraseMark-AI.png";
+        link.click();
+    });
+}
